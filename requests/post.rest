@@ -1,12 +1,10 @@
-POST   http://localhost:3001/api/evaluations
+
+###
+POST   http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-  "email": "pepitalapistolera@gmail.com",
-  "evaluation": "actualizado",
-  "segment": "actualizado",
-  "csvFile": {
-    "csvData": "Time",
-    "contentType": "text/csv"
-  }
+  "username": "gmoreno",
+  "name": "Gustavo",
+  "password": "349750"
 }

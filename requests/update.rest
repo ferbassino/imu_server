@@ -1,8 +1,0 @@
-PUT http://localhost:3001/api/evaluations/6338a851c03013c9d339e71c
-Content-Type: application/json
-
-{
-  "email": "pepitalapistolera@gmail.com",
-  "evaluation": "actualizado",
-  "segment": "actualizado"
-}

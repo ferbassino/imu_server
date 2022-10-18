@@ -1,4 +1,7 @@
+//requerimos router de expres que nos permite usar una clase para usar la ruta separada del index
+
 const usersRouter = require("express").Router();
+//importamos el modelo
 const User = require("../models/user");
 //importamos bcrypt para encriptar el password
 const bcrypt = require("bcrypt");
@@ -14,11 +17,10 @@ app.use(
 );
 //------------------------------
 
-//--------------OBTENER USUARIOS POST------------
+//--------------OBTENER USUARIOS GET------------
 
 usersRouter.get("/", async (request, response) => {
-  //guardamos en users todos los usuarios, y con el metodo populate le decimos que nos rellene con la informacion de las evaluaciones, o sea cuando buscamos a todos los usuarios nos trae la informacion de las evaluaciones. podemos indicar que es lo que queremos que añada para no duplicar datos , esto con un segundo parametro
-  const users = await User.find({}).populate("evaluations");
+  const users = await User.find({});
   response.json(users);
 });
 //--------------CREAR USUARIO POST------------
@@ -31,14 +33,17 @@ usersRouter.post("/", async (request, response) => {
 
   const saltround = 10;
   const passwordHash = await bcrypt.hash(password, saltround);
+  //creamos el usuario con el modelo, fijate que las constantes de llaman igual menos el password que esta en la variable encriptada
   const user = new User({
     username,
     name,
     passwordHash,
   });
 
+  //una vez que tenemos la intancia la guardamos esperando al user.save
   const savedUser = await user.save();
-  response.json(savedUser);
+
+  response.status(201).json(savedUser);
 });
 
 module.exports = usersRouter;

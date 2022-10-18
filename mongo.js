@@ -14,7 +14,7 @@ CLAVE = process.env.CLAVE;
 //conexion a mongodb
 mongoose
   .connect(
-    "mongodb+srv://ferbassino:123@cluster0.wbozqys.mongodb.net/kinapp-data?retryWrites=true&w=majority"
+    "mongodb+srv://ferbassino:123@cluster0.wbozqys.mongodb.net/curso-imu?retryWrites=true&w=majority"
   )
   .then(() => {
     console.log("conectado con la base de datos");
@@ -22,3 +22,9 @@ mongoose
   .catch((err) => {
     console.error(err);
   });
+
+process.on("uncaughtException", (error) => {
+  console.error(error);
+
+  // mongoose.disconnect();
+});
