@@ -1,3 +1,4 @@
+//------------------------------cambio
 //vamos a requerir el dotenv para las variables de entorno
 require("dotenv").config();
 //requerimos la conexion
@@ -19,7 +20,7 @@ const jwt = require("jsonwebtoken");
 const app = express();
 
 //middlewares: son funciones que interceptan las peticiones (use se refiere a cualquier peticion) y se ejecutan en orden de arriba ajajo y evalua como se requieren los recursos y se aplican si encajan, por ejemplo en un get, post, y asi. muy util para los 404
-
+//a ver si lo toma
 app.use(
   cors({
     origin: "*",
