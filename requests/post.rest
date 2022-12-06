@@ -1,10 +1,17 @@
-
-###
 POST   http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-  "username": "gmoreno",
-  "name": "Gustavo",
+  "username": "dcolasurdo",
+  "name": "Diego",
+  "password": "456201"
+}
+###
+POST   https://kinapp22.herokuapp.com/api/users
+Content-Type: application/json
+
+{
+  "username": "test",
+  "name": "1234",
   "password": "349750"
 }
